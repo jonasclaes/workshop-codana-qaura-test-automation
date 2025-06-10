@@ -9,9 +9,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        shard: [1, 2, 3, 4]
-        all: [4]
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +20,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --shard=${{ matrix.shard }}/${{ matrix.all }}
+        run: npx playwright test
         env:
           BASE_URL: ${{ vars.BASE_URL }}
           ADMIN_USERNAME: ${{ vars.ADMIN_USERNAME }}
