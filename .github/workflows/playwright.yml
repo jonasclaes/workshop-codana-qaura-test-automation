@@ -12,6 +12,7 @@ jobs:
       matrix:
         shard: [1, 2, 3, 4]
         all: [4]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
